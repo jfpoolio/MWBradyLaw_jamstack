@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const practiceAreas = await getCollection('practice-areas');
+const sortedPracticeAreas = practiceAreas.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Practice Areas - MW Brady Law" description="Our legal services include estate planning, real estate, business law, and litigation in Frankfort and Crete, Illinois.">
+  <main class="container mx-auto px-4 py-8">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-4xl font-bold text-gray-900 mb-8">Our Practice Areas</h1>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedPracticeAreas.map((area) => (
+          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <h2 class="text-xl font-semibold text-gray-900 mb-3">
+              <a href={`/practice-areas/${area.data.slug}`} class="hover:text-blue-600">
+                {area.data.title}
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">{area.data.description}</p>
+            <a href={`/practice-areas/${area.data.slug}`} class="text-blue-600 hover:text-blue-800 font-medium">
+              Learn More →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</BaseLayout>
