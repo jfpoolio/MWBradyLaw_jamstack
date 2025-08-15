@@ -15,7 +15,7 @@ export default defineConfig({
 		tailwind(),
 		sitemap()
 	],
-	output: 'static',
+	output: 'server',
 	build: {
 		assets: 'assets'
 	},
@@ -23,6 +23,11 @@ export default defineConfig({
 		service: {
 			entrypoint: 'astro/assets/services/sharp'
 		}
+	},
+	vite: {
+	    define: {
+	      'process.env.TINA_PUBLIC_IS_LOCAL': '"true"'
+	    }
 	}
 });
 
