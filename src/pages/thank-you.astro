@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Thank You - MW Brady Law"
+  description="Thank you for contacting MW Brady Law. We'll be in touch soon."
+>
+  <section class="thank-you-section">
+    <div class="container">
+      <div class="thank-you-content">
+        <h1>Thank You!</h1>
+        <p class="lead">We've received your message and will be in touch soon.</p>
+        
+        <div class="next-steps">
+          <h2>What Happens Next?</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>We Review Your Message</h3>
+                <p>Our team will carefully review your inquiry and determine the best way to assist you.</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>We Contact You</h3>
+                <p>We'll reach out within 1-2 business days to discuss your legal needs and schedule a consultation.</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Free Consultation</h3>
+                <p>We'll meet with you to discuss your situation and explain how we can help.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-info">
+          <h2>Need Immediate Assistance?</h2>
+          <p>If you have an urgent legal matter, please call us directly:</p>
+          <a href="tel:708-532-3655" class="phone-cta">(708) 532-3655</a>
+        </div>
+        
+        <div class="actions">
+          <a href="/" class="btn-primary">Return to Homepage</a>
+          <a href="/practice-areas" class="btn-secondary">Learn About Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thank-you-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .thank-you-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .thank-you-content h1 {
+    font-size: 3rem;
+    color: #8B5A3C;
+    margin-bottom: 1rem;
+  }
+  
+  .lead {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 3rem;
+  }
+  
+  .next-steps {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+  
+  .next-steps h2 {
+    text-align: center;
+    color: #2C2C2C;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  
+  .steps {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .step-number {
+    background: #8B5A3C;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+  
+  .step-content h3 {
+    color: #2C2C2C;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .step-content p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .contact-info {
+    background: #8B5A3C;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+  }
+  
+  .contact-info h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .contact-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .phone-cta {
+    display: inline-block;
+    background: white;
+    color: #8B5A3C;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  .phone-cta:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+  }
+  
+  .actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background: #8B5A3C;
+    color: white;
+    border: 2px solid #8B5A3C;
+  }
+  
+  .btn-primary:hover {
+    background: #6D4530;
+    border-color: #6D4530;
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    color: #8B5A3C;
+    border: 2px solid #8B5A3C;
+  }
+  
+  .btn-secondary:hover {
+    background: #8B5A3C;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .thank-you-content h1 {
+      font-size: 2rem;
+    }
+    
+    .lead {
+      font-size: 1.25rem;
+    }
+    
+    .next-steps {
+      padding: 2rem;
+    }
+    
+    .step {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+

@@ -1,0 +1,412 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get practice areas for homepage display
+const practiceAreas = await getCollection('practice-areas');
+const featuredPracticeAreas = practiceAreas
+  .filter(area => area.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 5);
+
+// Get featured team members
+const team = await getCollection('team');
+const featuredTeam = team
+  .filter(member => member.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+---
+
+<BaseLayout 
+  title="MW Brady Law - Legal Counseling for Your Business, Property & Family"
+  description="Compassionate & experienced attorneys serving Frankfort and Crete, IL. Expert legal services for real estate, estate planning, business law, and more."
+  keywords={["law firm", "attorney", "legal services", "Frankfort IL", "Crete IL", "real estate law", "estate planning"]}
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="container">
+        <h1 class="hero-title">
+          LEGAL COUNSELING <span class="hero-accent">for</span> YOUR<br>
+          BUSINESS, PROPERTY & FAMILY
+        </h1>
+        <p class="hero-subtitle">
+          Work with compassionate & experienced attorneys.<br>
+          Discover what we can do for you!
+        </p>
+        <a href="/contact" class="cta-button">Contact us today</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/images/hero-background.jpg" alt="MW Brady Law Team" />
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <h2 class="section-title">
+        YOUR TRUSTED PARTNER IN PLANNING<br>
+        <span class="section-accent">for</span> A LIFETIME
+      </h2>
+      <p class="section-description">
+        Our team has the energy, the knowledge, the experience, and the passion to walk with you down all the paths of your life. 
+        Whether you are starting a family, purchasing or selling a home, establishing or growing a business, trying to save money, 
+        looking to protect your assets, beginning your golden years, or considering whether you need legal counsel, we are here to 
+        help you each and every step of the way.
+      </p>
+      
+      <div class="team-photo">
+        <img src="/images/team-photo.jpg" alt="MW Brady Law Team" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas Section -->
+  <section class="practice-areas-section">
+    <div class="container">
+      <h2 class="section-title">OUR PRACTICE AREAS</h2>
+      
+      <div class="practice-areas-grid">
+        <div class="practice-area-card">
+          <h3 class="practice-area-title">
+            <a href="/practice-areas/estate-planning">ESTATE PLANNING</a>
+          </h3>
+          <p class="practice-area-description">Wills, Trusts, Special Needs Trusts, Powers of Attorney</p>
+          <a href="/practice-areas/estate-planning" class="learn-more-btn">Learn More</a>
+        </div>
+        
+        <div class="practice-area-card">
+          <h3 class="practice-area-title">
+            <a href="/practice-areas/real-estate">REAL ESTATE LAW</a>
+          </h3>
+          <p class="practice-area-description">Residential, Commercial, Foreclosures, Short Sales, Lease Development, Title Transfers, Investments, Licensing & Contracts</p>
+          <a href="/practice-areas/real-estate" class="learn-more-btn">Learn More</a>
+        </div>
+        
+        <div class="practice-area-card">
+          <h3 class="practice-area-title">
+            <a href="/practice-areas/small-business">SMALL BUSINESS/CORPORATE LAW</a>
+          </h3>
+          <p class="practice-area-description">Entity Formation, Registered Agent, Contracts, Succession Planning</p>
+          <a href="/practice-areas/small-business" class="learn-more-btn">Learn More</a>
+        </div>
+        
+        <div class="practice-area-card">
+          <h3 class="practice-area-title">
+            <a href="/practice-areas/guardianship-probate">GUARDIANSHIPS/PROBATE/ TRUST ADMINISTRATION</a>
+          </h3>
+          <p class="practice-area-description">Decedent's Estate Administration, Trust Administration, Guardianships (Minors & Adults)</p>
+          <a href="/practice-areas/guardianship-probate" class="learn-more-btn">Learn More</a>
+        </div>
+        
+        <div class="practice-area-card">
+          <h3 class="practice-area-title">
+            <a href="/practice-areas/litigation">LITIGATION</a>
+          </h3>
+          <p class="practice-area-description">Business, Individual, Collections</p>
+          <a href="/practice-areas/litigation" class="learn-more-btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Reviews Section -->
+  <section class="reviews-section">
+    <div class="container">
+      <h2 class="section-title">OUR CLIENT REVIEWS</h2>
+      
+      <div class="review-card">
+        <blockquote>
+          "Mike and his team helped set up a Special Needs trust and was kind, thorough and patient throughout the entire process. 
+          An EXPERT job! Thank you!"
+        </blockquote>
+        <cite>— Satisfied Client</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p>Contact MW Brady Law today for your free consultation.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="cta-button primary">Contact Us</a>
+        <a href="tel:708-532-3655" class="cta-button secondary">Call (708) 532-3655</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  }
+  
+  .hero-content {
+    padding: 4rem 0;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #2C2C2C;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-accent {
+    color: #8B5A3C;
+    font-style: italic;
+    font-weight: 400;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .hero-image {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: #8B5A3C;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #8B5A3C;
+  }
+  
+  .cta-button:hover {
+    background: #6D4530;
+    border-color: #6D4530;
+    transform: translateY(-2px);
+  }
+  
+  .cta-button.secondary {
+    background: transparent;
+    color: #8B5A3C;
+  }
+  
+  .cta-button.secondary:hover {
+    background: #8B5A3C;
+    color: white;
+  }
+  
+  /* About Section */
+  .about-section {
+    padding: 5rem 0;
+    background: white;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2C2C2C;
+  }
+  
+  .section-accent {
+    color: #8B5A3C;
+    font-style: italic;
+    font-weight: 400;
+  }
+  
+  .section-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: #555;
+  }
+  
+  .team-photo {
+    text-align: center;
+  }
+  
+  .team-photo img {
+    max-width: 600px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  /* Practice Areas Section */
+  .practice-areas-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+  }
+  
+  .practice-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .practice-area-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .practice-area-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .practice-area-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #8B5A3C;
+  }
+  
+  .practice-area-title a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .practice-area-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .learn-more-btn {
+    display: inline-block;
+    background: #8B5A3C;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  
+  .learn-more-btn:hover {
+    background: #6D4530;
+  }
+  
+  /* Reviews Section */
+  .reviews-section {
+    padding: 5rem 0;
+    background: white;
+  }
+  
+  .review-card {
+    max-width: 600px;
+    margin: 3rem auto 0;
+    text-align: center;
+  }
+  
+  .review-card blockquote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .review-card cite {
+    color: #8B5A3C;
+    font-weight: 600;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    padding: 4rem 0;
+    background: #8B5A3C;
+    color: white;
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-section p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .cta-section .cta-button {
+    background: white;
+    color: #8B5A3C;
+    border-color: white;
+  }
+  
+  .cta-section .cta-button:hover {
+    background: #f8f9fa;
+  }
+  
+  .cta-section .cta-button.secondary {
+    background: transparent;
+    color: white;
+    border-color: white;
+  }
+  
+  .cta-section .cta-button.secondary:hover {
+    background: white;
+    color: #8B5A3C;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .practice-areas-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
