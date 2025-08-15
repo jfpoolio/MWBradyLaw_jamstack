@@ -25,6 +25,11 @@ export default defineConfig({
       publicFolder: "public",
     },
   },
+  admin: {
+    auth: {
+      useLocalAuth: true,
+    },
+  },
   schema: {
     collections: [
       {

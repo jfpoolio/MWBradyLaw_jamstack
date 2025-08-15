@@ -3,17 +3,18 @@ export const prerender = false;
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TinaCMS Admin</title>
-    <style>
-        body { margin: 0; padding: 0; overflow: hidden; }
-        iframe { width: 100%; height: 100vh; border: none; }
-    </style>
 </head>
 <body>
-    <iframe src="http://localhost:4001/admin/index.html" title="TinaCMS Admin"></iframe>
+    <div id="root"></div>
+    <script type="module">
+        // This will load the TinaCMS admin from the public/admin folder
+        window.location.href = '/admin/index.html';
+    </script>
 </body>
 </html>
+
